@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/weekly.css">
+</head>
+
+<body>
+    
+    <div id="main">
+        <div id="header">
+            <h4><%=habit.week[6].date.substring(4,8)%></h4>
+            <a href="/"> <h5>Home</h5> </a>
+        </div>
+        <div id="weekly-data-div">
+            <div id="habit-info">
+                <span>
+                    <%= habit.habit%>
+                </span>
+                <span>
+                    <%= habit.category%>
+                </span>
+                <span>
+                    <%= habit.time%>
+                </span>
+            </div>
+
+            <div id="habit-status-container">
+                <% for( i of habit.week){%>
+                    <form method="post">
+                        
+                        <div  id="weekly-status">
+                            <span>
+                                <%= i.date.substring(0,3)%>
+                            </span>
+                            <span>
+                                <button class="<%= i.status%>" type="submit" formaction="/habit/weeklyStatus/<%= i.id%>/<%= habit.id%>" name="status"
+                                    value="<%= i.status%>"> <%= i.date.substring(8,10)%>  </button>
+                                
+                            </span>
+                            <!-- <%= i.date.substring(4,8)%> -->
+                            
+                        </div>  
+                    </form>
+                <%}%>
+            </div>
+        </div>
+
+        <!-- <a href="/habit/list"> Habit List </a> -->
+        <br/>
+        <div id="status">
+            Status:
+            <h4 id="finish">done</h4>
+            <h4 id="incomplete">not-done</h4>
+            <h4 id="pend">pending</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>

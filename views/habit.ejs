@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="habit-list">
+        <ul>
+            <% for (i of allHabits) { %>
+                <li>
+                    <form id="<%= i.id%>" method="post">
+                        <div >
+                            <%= i.habit %>
+                            <%= i.week[6].status%>
+                            <a href="/habit/weekly/<%= i.id%>">weekly status</a>
+                        </div>
+                        <button type="submit" formaction="/habit/status/<%= i.id%>/<%= i.week.id%>" name="status" value="<%= i.week.status%>"> finish </button>
+                        <!-- <button type="submit" formaction="/habit/status/<%= i.id%>" name="status" value="not finished">not finish </button> -->
+                    </form>
+                </li>
+                
+                
+            <% } %>
+        </ul>
+    </div>
+    
+    <a href="/"> Home </a>
+    
+</body>
+</html>

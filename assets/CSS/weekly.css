@@ -1,0 +1,144 @@
+*{
+    margin: 0px;
+}
+
+
+#main{
+    margin-top: 15vh;
+    margin-left: 35vw;
+    width: 30vw;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px 25px rgb(159, 154, 154);
+}
+
+/* Styling header */
+#header{
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+}
+#header h4{
+    margin-right: 4%;
+    padding: 1%;
+    border-radius: 8px;
+}
+
+/* #header h4:hover{
+    transition: 1s;
+    box-shadow: 1px 2px 2px 2px rgb(233, 86, 86);
+} */
+
+#header a{
+    margin-left: 5%;
+    text-decoration: none;
+    color: rgb(252, 252, 252);
+    padding: 1%;
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: brown;
+
+    /* background: transparent; */
+}
+#header a:hover{
+    transition: 1s;
+    box-shadow: 2px 2px 2px 2px rgb(248, 131, 131);
+}
+
+#weekly-data-div{
+    /* border: 1px solid green; */
+    width: 100%;
+    position: relative;
+}
+
+/* Adding style to habit information */
+#habit-info{
+    /* border: 1px solid red; */
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#habit-status-container{
+    margin-top: 1%;
+    border-top: 1px solid gray;
+    display: flex;
+    align-items: center;
+    height: 15%;
+    justify-content: space-evenly;
+    overflow: auto;
+    padding: 0.5%;
+}
+
+#weekly-status{
+    /* border-top: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1%;
+}
+
+#weekly-status span{
+    margin: 0 1% 0 1%;
+    padding: 0.5%;
+    border-radius: 20px;
+}
+
+#weekly-status button{
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.pending{
+    border: 2.5px solid rgb(4, 0, 255);
+    background-color: rgb(55, 74, 160);
+    color: white;
+}
+.done{
+    border: 2.5px solid rgb(2, 85, 8);
+    background-color: rgb(60, 204, 60);
+    color: white;
+}
+.not-done{
+    border: 2.5px solid rgb(255, 3, 3);
+    background-color: rgb(177, 40, 40);
+    color: white;
+}
+
+#status{
+    border-top: 1px solid gray;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+
+#pend{
+    border: 2px solid blue;
+    padding: 2%;
+    color: blue;
+}
+#finish{
+    border: 2px solid green;
+    padding: 2%;
+    color: green;
+}
+#incomplete{
+    border: 2px solid red;
+    padding: 2%;
+    color: red;
+}
+
+@media screen and (max-width: 992px) {
+    #main {
+        width:300px ;
+    }
+  }

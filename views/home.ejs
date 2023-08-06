@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- habits container -->
+    <div id="main-div">
+        <form method="post">
+            <div id="heading">
+                <h1>Habit Hunter</h1>
+            </div>
+            <div id="habit-info">
+                <div id="habit-input">
+                    <h2>Enter the habit to track</h2>
+                    <input type="text" name="habit" placeholder="Enter habit...!" required>
+                </div>
+                <div id="cat-time-div">
+                    <div id="category-div">
+                        <h3>Category</h3>
+                        <!-- <label for="category">Category</label> -->
+                        <select name="category">
+                            <option>Personal</option>
+                            <option>Work</option>
+                            <option>Sports</option>
+                        </select>
+                    </div>
+                    <div id="time-div">
+                        <h3>Time</h3>
+                        <input type="time" id="time" name="time">
+                    </div>
+                </div>
+                <div id="buttons">
+                    <button type="submit" id="add-habbit-btn" formaction="/habit/create"><img src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png" alt="Add Habit">Add Habit </button>
+                </div>
+            </div>
+        </form>
+        <div id="habit-list">
+            <div id="daily-status-heading">
+                <h3>
+                    daily Status:
+                </h3>
+            </div>
+            <div id="table-headings">
+                <h4>Habit</h4>
+                <h4>Status</h4>
+                <h4>Category</h4>
+                <h4>Date</h4>
+                <h4>Weekly Status</h4>
+                <h4>Delete habit</h4>
+            </div>
+            <ul id="habit-ul-list">
+                <% for (i of allHabits) { %>
+                    <li class="<%= i.week[6].status%>">
+
+                        <form id="<%= i.id%>" method="post"> 
+                            
+                            <span><%= i.habit %></span>
+                            <span><%= i.week[6].status%></span>
+                            <span><%= i.category%></span>
+                            <div>
+                                <span>
+                                    <%= i.week[6].date.substring(0,3)%>
+                                </span>
+                                <button class="update-button <%= i.week[6].status%>" type="submit" formaction="/habit/status/<%= i.id%>/<%= i.week.id%>"
+                                    name="status" value="<%= i.week.status%>">
+                                    <%=i.week[6].date.substring(8,10)%>
+                                </button>
+                            </div>
+                            <a id="weekly-status-btn" href="/habit/weekly/<%= i.id%>">weekly status</a>
+                            
+                            <a class="button-images" href="/habit/delete/<%=i.id%>"><img src="https://cdn-icons-png.flaticon.com/128/8840/8840949.png" alt="x"></a>
+                            
+                        </form>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
