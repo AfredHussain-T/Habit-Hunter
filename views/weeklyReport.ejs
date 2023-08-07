@@ -10,11 +10,14 @@
 
 <body>
     
+    <!-- Main div where the data of Habit for the past 7 days is displayed -->
     <div id="main">
         <div id="header">
+            <!-- Habit present month and home buttons displayed to navigate or switch-->
             <h4><%=habit.week[6].date.substring(4,8)%></h4>
             <a href="/"> <h5>Home</h5> </a>
         </div>
+        <!-- Data of the habit for the past 7 days is displayed -->
         <div id="weekly-data-div">
             <div id="habit-info">
                 <span>
@@ -27,7 +30,7 @@
                     <%= habit.time%>
                 </span>
             </div>
-
+            <!-- Dates are displayed in the form of buttons to change the status of the habit on the particular date -->
             <div id="habit-status-container">
                 <% for( i of habit.week){%>
                     <form method="post">
@@ -51,6 +54,8 @@
 
         <!-- <a href="/habit/list"> Habit List </a> -->
         <br/>
+
+        <!-- A container which shows the color of the status for information Blue--Pending , Green -- done, Red -- not-done -->
         <div id="status">
             Status:
             <h4 id="finish">done</h4>

@@ -5,22 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/home.css">
+    <!-- Getting the title from home controller dynamically -->
     <title><%= title%></title>
 </head>
 
 <body>
-    <!-- habits container -->
+    <!-- habit hunter Main div -->
     <div id="main-div">
+        <!-- This is the form which contain the data to create the habit   -->
         <form method="post">
+            <!-- Heading of the application -->
             <div id="heading">
                 <h1>Habit Hunter</h1>
             </div>
+            <!-- Container to provide the information of the habit to be created -->
             <div id="habit-info">
                 <div id="habit-input">
                     <h2>Enter the habit to track</h2>
+                    <!-- Habit name -->
                     <input type="text" name="habit" placeholder="Enter habit...!" required>
                 </div>
                 <div id="cat-time-div">
+                    <!-- Choose the category under which the habit is to be mapped -->
                     <div id="category-div">
                         <h3>Category</h3>
                         <!-- <label for="category">Category</label> -->
@@ -31,21 +37,26 @@
                         </select>
                     </div>
                     <div id="time-div">
+                        <!-- Enter the time of the habit to be done -->
                         <h3>Time</h3>
                         <input type="time" id="time" name="time">
                     </div>
                 </div>
                 <div id="buttons">
+                    <!-- On clicking this button it will create the habit with the data entered in the form -->
                     <button type="submit" id="add-habbit-btn" formaction="/habit/create"><img src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png" alt="Add Habit">Add Habit </button>
                 </div>
             </div>
         </form>
+
+        <!-- Habits list in the home page where all the habits are displayed -->
         <div id="habit-list">
             <div id="daily-status-heading">
                 <h3>
                     daily Status:
                 </h3>
             </div>
+            <!-- Heading for the data displayed in the habit list -->
             <div id="table-headings">
                 <h4>Habit</h4>
                 <h4>Status</h4>
@@ -54,12 +65,13 @@
                 <h4>Weekly Status</h4>
                 <h4>Delete habit</h4>
             </div>
+
             <ul id="habit-ul-list">
                 <% for (i of allHabits) { %>
                     <li class="<%= i.week[6].status%>">
-
+                        <!-- Form for updating the status of the habit -->
                         <form id="<%= i.id%>" method="post"> 
-                            
+                            <!-- Habit data -->
                             <span><%= i.habit %></span>
                             <span><%= i.week[6].status%></span>
                             <span><%= i.category%></span>
@@ -67,13 +79,14 @@
                                 <span>
                                     <%= i.week[6].date.substring(0,3)%>
                                 </span>
-                                <button class="update-button <%= i.week[6].status%>" type="submit" formaction="/habit/status/<%= i.id%>/<%= i.week.id%>"
-                                    name="status" value="<%= i.week.status%>">
+                                <!-- Button for updating the status of the habit (The button is date on clicking the date it will change the status accordingly) -->
+                                <button class="update-button <%= i.week[6].status%>" type="submit" formaction="/habit/status/<%= i.id%>/<%= i.week.id%>" name="status" value="<%= i.week.status%>">
                                     <%=i.week[6].date.substring(8,10)%>
                                 </button>
                             </div>
+                            <!-- Button for displaying the weekly status of every habit -->
                             <a id="weekly-status-btn" href="/habit/weekly/<%= i.id%>">weekly status</a>
-                            
+                            <!-- Button for removing the habit from the DB -->
                             <a class="button-images" href="/habit/delete/<%=i.id%>"><img src="https://cdn-icons-png.flaticon.com/128/8840/8840949.png" alt="x"></a>
                             
                         </form>
