@@ -132,20 +132,20 @@ not-done state - Red
 */
 .pending{
     border: 3px solid blue;
-    background-color: rgb(46, 46, 134);
+    background: linear-gradient(55deg, rgb(46, 46, 134), rgb(239, 222, 222));
     color: beige;
     
 }
 
 .done{
     border: 3px solid green;
-    background-color: rgb(65, 140, 65) ;
+    background: linear-gradient(55deg, rgb(65, 140, 65), rgb(239, 222, 222));
     color: beige;
 }
 
 .not-done{
     border: 3px solid red;
-    background-color: rgb(255, 67, 67);
+    background: linear-gradient(55deg, rgb(255, 67, 67), rgb(239, 222, 222));
     color: beige;
 }
 

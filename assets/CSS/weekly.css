@@ -2,14 +2,15 @@
     margin: 0px;
 }
 
-
+/* Styling the main div of the page, where all the data is displayed */
 #main{
     margin-top: 15vh;
     margin-left: 35vw;
     width: 30vw;
     position: relative;
     border-radius: 20px;
-    box-shadow: 20px 20px 20px 25px rgb(159, 154, 154);
+    background: linear-gradient(55deg, rgb(228, 215, 215), rgb(226, 130, 130));
+    box-shadow: 2px 2px 20px 6px rgb(159, 154, 154);
 }
 
 /* Styling header */
@@ -26,11 +27,7 @@
     border-radius: 8px;
 }
 
-/* #header h4:hover{
-    transition: 1s;
-    box-shadow: 1px 2px 2px 2px rgb(233, 86, 86);
-} */
-
+/* Adding style to home button */
 #header a{
     margin-left: 5%;
     text-decoration: none;
@@ -48,14 +45,12 @@
 }
 
 #weekly-data-div{
-    /* border: 1px solid green; */
     width: 100%;
     position: relative;
 }
 
 /* Adding style to habit information */
 #habit-info{
-    /* border: 1px solid red; */
     padding: 3%;
     display: flex;
     align-items: center;
@@ -73,9 +68,8 @@
     overflow: auto;
     padding: 0.5%;
 }
-
+/* Adding style to the div of weekly status of habit */
 #weekly-status{
-    /* border-top: 1px solid black; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +82,7 @@
     border-radius: 20px;
 }
 
+/* Adding style to the buttons accoring to the status of the Habit on that date */
 #weekly-status button{
     outline: none;
     width: 40px;
@@ -111,6 +106,7 @@
     color: white;
 }
 
+/* Adding style to Status information div */
 #status{
     border-top: 1px solid gray;
     padding: 4%;
@@ -120,7 +116,7 @@
     overflow: auto;
 }
 
-
+/* Adding style to status information div */
 #pend{
     border: 2px solid blue;
     padding: 2%;
@@ -137,6 +133,7 @@
     color: red;
 }
 
+/* Setting up the media query */
 @media screen and (max-width: 992px) {
     #main {
         width:300px ;
