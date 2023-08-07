@@ -1,14 +1,16 @@
 const Habit = require('../models/habits');
 
+// function for Creating the Habit 
 module.exports.createHabit = async function (req, res) {
     try {
-        let days = [];
+        let days = []; // This array is to store the data of habit for prev 7 days 
         for (let i = 0; i < 7; i++) {
             const currDate = new Date();
             currDate.setDate(currDate.getDate() - i);
             const newDate = currDate.toDateString();
-            days.unshift({ date: newDate, status: "pending" });
+            days.unshift({ date: newDate, status: "pending" }); // We are adding the date and the status as pending, when the habit is created.
         }
+        
         let newHabit = await Habit.create({
             habit: req.body.habit,
             category: req.body.category,
@@ -21,19 +23,6 @@ module.exports.createHabit = async function (req, res) {
     }
 }
 
-// To list down all the habits
-module.exports.showAllHabits = async function (req, res) {
-    try {
-        let allHabits = await Habit.find({});
-        res.render('habit', {
-            allHabits: allHabits
-        })
-    } catch (error) {
-        console.log('error while getting the habit list : ', error);
-        res.redirect('back');
-    }
-}
-
 
 // To show the weekly status of a habit
 module.exports.showWeekly = async function (req, res) {
@@ -42,6 +31,7 @@ module.exports.showWeekly = async function (req, res) {
         console.log(curHabit);
 
         let weekdays = curHabit.week;
+        // Here we are comparing the last day of the week and present day and changing the last 7 days of the habit dynamically, when the day changes
         let currLastDate = new Date(weekdays[6].date);
         let currDate = new Date();
         currDate.setDate(currDate.getDate());
@@ -58,10 +48,12 @@ module.exports.showWeekly = async function (req, res) {
                 weekdays.push({ date: insertDate, status: "pending" });
             }
         }
+        // Once the days are dynamically stored then we store the data and save it in the data base to display it.
         curHabit.week = weekdays;
         curHabit.save();
 
         res.render('weeklyReport', {
+            title: "Habit Hunter",
             habit: curHabit
         });
     } catch (error) {
@@ -70,6 +62,10 @@ module.exports.showWeekly = async function (req, res) {
     }
 }
 
+// This is to show the status of the habit on the home page with its current status. We can change the status of the habit accordingly
+// if the list is green color - then the status of habit is done
+// if the list is red color - then the status of habit is not-done
+// if the list is blue color - then the status of habit is pending
 module.exports.dailyStatus = async function (req, res) {
     try {
         let currHabit = await Habit.findById(req.params.habitId);
@@ -97,7 +93,7 @@ module.exports.dailyStatus = async function (req, res) {
     }
 }
 
-
+// This is to show the status of the habit on the weekly status page with its past 7 days status. We can change the status of the habit accordingly for all the 7 days.
 module.exports.weeklyStatus = async function (req, res) {
     let currHabit = await Habit.findById(req.params.habit_Id);
     let day_id = req.params.day_id;
@@ -125,7 +121,7 @@ module.exports.weeklyStatus = async function (req, res) {
     res.redirect('back');
 }
 
-
+// To Delete the habit if it is not anymore present in the list of your habits
 module.exports.deleteHabit = async function (req, res) {
     try {
         let delhabit = await Habit.findByIdAndDelete(req.params.deleteID);
