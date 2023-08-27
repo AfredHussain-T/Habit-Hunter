@@ -17,9 +17,7 @@ app.set('view engine' ,'ejs');
 app.set('views' , './views');
 
 
-const PORT = process.env.PORT;
-
-app.listen(PORT , function(err){
+app.listen(port , function(err){
     if(err){
         console.log('There is an error: ', err);
         return;
