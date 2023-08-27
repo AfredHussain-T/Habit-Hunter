@@ -86,10 +86,10 @@ module.exports.dailyStatus = async function (req, res) {
         }
         console.log(flag);
         currHabit.save();
-        res.redirect('back');
+        return res.redirect('back');
     } catch (error) {
         console.log('error in changing the status', error);
-        res.redirect('back');
+        return res.redirect('back');
     }
 }
 
@@ -118,16 +118,16 @@ module.exports.weeklyStatus = async function (req, res) {
         }
     }
     currHabit.save();
-    res.redirect('back');
+    return res.redirect('back');
 }
 
 // To Delete the habit if it is not anymore present in the list of your habits
 module.exports.deleteHabit = async function (req, res) {
     try {
         let delhabit = await Habit.findByIdAndDelete(req.params.deleteID);
-        res.redirect('back');
+        return res.redirect('back');
     } catch (error) {
         console.log('There is an error in removing habit ', error);
-        res.redirect('back');
+        return res.redirect('back');
     }
 }

@@ -91,19 +91,19 @@
 }
 
 .pending{
-    border: 2.5px solid rgb(4, 0, 255);
-    background-color: rgb(55, 74, 160);
-    color: white;
+    border: 3px solid blue;
+    background: linear-gradient(55deg, rgb(46, 46, 134), rgb(239, 222, 222));
+    color: beige;
 }
 .done{
-    border: 2.5px solid rgb(2, 85, 8);
-    background-color: rgb(60, 204, 60);
-    color: white;
+    border: 3px solid green;
+    background: linear-gradient(55deg, rgb(65, 140, 65), rgb(239, 222, 222));
+    color: beige;
 }
 .not-done{
-    border: 2.5px solid rgb(255, 3, 3);
-    background-color: rgb(177, 40, 40);
-    color: white;
+    border: 3px solid red;
+    background: linear-gradient(55deg, rgb(255, 67, 67), rgb(239, 222, 222));
+    color: beige;
 }
 
 /* Adding style to Status information div */

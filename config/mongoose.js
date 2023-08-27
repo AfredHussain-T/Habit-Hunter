@@ -1,7 +1,8 @@
 const mongoose = require('mongoose'); //Importing mongoose
 
 // Establishing database connection
-mongoose.connect('mongodb://127.0.0.1:27017/habit-hunter');
+// mongoose.connect('mongodb://127.0.0.1:27017/habit-hunter');
+mongoose.connect('mongodb+srv://afredhussain69:Rova7nxwtw1zl18Q@cluster0.r9drjvc.mongodb.net/Habit-Tracker');
 
 const mongoConnection = mongoose.connection;
 
