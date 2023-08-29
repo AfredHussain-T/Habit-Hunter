@@ -50,6 +50,7 @@
     |-->package.json```
 
 ## How to setup the project on local system:
+
 * Clone this project into the system.
 * Run the command npm i or npm install for installing all the required dependencies.
 * Install the mongodb in the system if not already available.
