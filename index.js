@@ -3,6 +3,7 @@ const express = require('express');
 // The port on which our server is running
 const port = 7000;
 const app = express();
+require("dotenv").config();
 // Importing data base connection
 const db = require('./config/mongoose');
 // Importing the router file
@@ -17,11 +18,11 @@ app.set('view engine' ,'ejs');
 app.set('views' , './views');
 
 
-app.listen(port , function(err){
+app.listen(process.env.PORT , function(err){
     if(err){
         console.log('There is an error: ', err);
         return;
     }
 
-    console.log(`Server is running on the ${port}`);
+    console.log(`Server is running on the ${process.env.PORT}`);
 })

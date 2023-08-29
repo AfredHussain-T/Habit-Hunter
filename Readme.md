@@ -12,7 +12,7 @@
 * If we want to remove it we can click on the delete Icon which is given for all the habits seperately 
 ## Folder Structure:
 
-Habit-Tracker
+`Habit-Tracker
     |
     |               |--->css
     |--->assets---->|--->images
@@ -33,15 +33,13 @@ Habit-Tracker
     |
     |
     |
-    |--->routes---->|-->habit.js
+    |--->routes---->|-->habitroutes.js
     |               |-->index.js
     |
     |
     |
-    |              |---> _header.ejs
-    |              |---> habits.ejs
+    |              
     |--->views---->|--->home.ejs
-    |              |--->layout.ejs
     |              |--->weekly_status.ejs
     |
     |-->.env
@@ -49,7 +47,7 @@ Habit-Tracker
     |-->.gitignore
     |--> index.js
     |--> package-lock.json
-    |-->package.json
+    |-->package.json`
 
 ## How to setup the project on local system:
 * Clone this project into the system.
