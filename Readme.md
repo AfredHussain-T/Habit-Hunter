@@ -12,7 +12,7 @@
 * If we want to remove it we can click on the delete Icon which is given for all the habits seperately 
 ## Folder Structure:
 
-`Habit-Tracker
+```Habit-Tracker
     |
     |               |--->css
     |--->assets---->|--->images
@@ -47,7 +47,7 @@
     |-->.gitignore
     |--> index.js
     |--> package-lock.json
-    |-->package.json`
+    |-->package.json```
 
 ## How to setup the project on local system:
 * Clone this project into the system.
