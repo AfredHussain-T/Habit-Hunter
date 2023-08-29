@@ -47,7 +47,7 @@
     |-->.gitignore
     |--> index.js
     |--> package-lock.json
-    |-->package.json```
+    |-->package.json
 
 ## How to setup the project on local system:
 
