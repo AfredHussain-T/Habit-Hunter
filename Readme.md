@@ -1,3 +1,5 @@
+#Hosted Link: https://habit-hunter.onrender.com/
+
 # Habit Hunter
 * This Application is used to track the habits on daily and weekly basis.
 * NodeJs, expressJs, mongoDB and ejs technologies are used in creation of this application.
